@@ -52,6 +52,10 @@ class CorrectionRequest(BaseModel):
 @app.get("/")
 def health_check():
     return {"status": "online", "message": "Snap2UI FastAPI backend is running successfully."}
+    
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
 
 @app.post("/api/detect")
 async def detect_components(file: UploadFile = File(...)):
