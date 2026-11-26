@@ -23,12 +23,17 @@ fun HomeDashboardScreen(
     onNavigateToUpload: () -> Unit,
     onNavigateToGenerator: () -> Unit,
     onNavigateToHistory: () -> Unit,
-    onNavigateToSettings: () -> Unit
+    onNavigateToSettings: () -> Unit,
+    onNavigateToVisualEditor: () -> Unit,
+    onNavigateToAiChat: () -> Unit,
+    onNavigateToMultiScreen: () -> Unit,
+    onNavigateToResponsive: () -> Unit,
+    onNavigateToQuality: () -> Unit
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Snap2UI Dashboard", fontWeight = FontWeight.Bold) },
+                title = { Text("Snap2UI AI Platform", fontWeight = FontWeight.Bold) },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = DarkNavyBackground),
                 actions = {
                     IconButton(onClick = onNavigateToSettings) {
@@ -44,7 +49,7 @@ fun HomeDashboardScreen(
                 .fillMaxSize()
                 .padding(padding)
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             item {
                 Card(
@@ -60,11 +65,11 @@ fun HomeDashboardScreen(
                         ) {
                             Icon(Icons.Default.AutoAwesome, contentDescription = null, tint = AccentBlue, modifier = Modifier.size(32.dp))
                             Spacer(modifier = Modifier.width(12.dp))
-                            Text("Transform Screenshots & Text to UI", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+                            Text("Advanced AI UI Platform", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
                         }
                         Spacer(modifier = Modifier.height(12.dp))
                         Text(
-                            "Reconstruct mobile interfaces instantly using advanced computer vision, OCR, and AI code generation.",
+                            "Reconstruct screenshots, edit visually, chat with AI, generate multi-screen apps, and evaluate quality.",
                             fontSize = 14.sp,
                             color = TextSecondary
                         )
@@ -73,7 +78,7 @@ fun HomeDashboardScreen(
             }
 
             item {
-                Text("Quick Actions", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+                Text("Core Actions", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
             }
 
             item {
@@ -99,45 +104,62 @@ fun HomeDashboardScreen(
             }
 
             item {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text("Recent Projects", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
-                    TextButton(onClick = onNavigateToHistory) {
-                        Text("View All", color = AccentBlue)
-                    }
-                }
+                Text("Advanced Platform Modules", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
             }
 
             item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onNavigateToHistory() },
-                    colors = CardDefaults.cardColors(containerColor = DarkNavyCard),
-                    shape = MaterialTheme.shapes.medium
-                ) {
-                    ListItem(
-                        headlineContent = { Text("E-Commerce Checkout Screen", fontWeight = FontWeight.Medium, color = TextPrimary) },
-                        supportingContent = { Text("Reconstructed via YOLO & OpenCV • 94% SSIM", color = TextSecondary) },
-                        leadingContent = {
-                            Surface(
-                                modifier = Modifier.size(40.dp),
-                                shape = MaterialTheme.shapes.small,
-                                color = AccentBlue.copy(alpha = 0.2f)
-                            ) {
-                                Box(contentAlignment = Alignment.Center) {
-                                    Icon(Icons.Default.PhoneAndroid, contentDescription = null, tint = AccentBlue)
-                                }
-                            }
-                        },
-                        trailingContent = {
-                            Icon(Icons.Default.ChevronRight, contentDescription = null, tint = TextSecondary)
-                        },
-                        colors = ListItemDefaults.colors(containerColor = Color.Transparent)
-                    )
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        AdvancedFeatureCard(
+                            modifier = Modifier.weight(1f),
+                            title = "Visual UI Editor",
+                            icon = Icons.Default.Tune,
+                            onClick = onNavigateToVisualEditor
+                        )
+                        AdvancedFeatureCard(
+                            modifier = Modifier.weight(1f),
+                            title = "AI Chat Assistant",
+                            icon = Icons.Default.Chat,
+                            onClick = onNavigateToAiChat
+                        )
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        AdvancedFeatureCard(
+                            modifier = Modifier.weight(1f),
+                            title = "Multi-Screen Apps",
+                            icon = Icons.Default.Layers,
+                            onClick = onNavigateToMultiScreen
+                        )
+                        AdvancedFeatureCard(
+                            modifier = Modifier.weight(1f),
+                            title = "Responsive Preview",
+                            icon = Icons.Default.Devices,
+                            onClick = onNavigateToResponsive
+                        )
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        AdvancedFeatureCard(
+                            modifier = Modifier.weight(1f),
+                            title = "Quality Report",
+                            icon = Icons.Default.Verified,
+                            onClick = onNavigateToQuality
+                        )
+                        AdvancedFeatureCard(
+                            modifier = Modifier.weight(1f),
+                            title = "Project History",
+                            icon = Icons.Default.History,
+                            onClick = onNavigateToHistory
+                        )
+                    }
                 }
             }
         }
@@ -172,6 +194,39 @@ fun ActionCard(
             }
             Text(title, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = TextPrimary)
             Text(subtitle, fontSize = 12.sp, color = TextSecondary)
+        }
+    }
+}
+
+@Composable
+fun AdvancedFeatureCard(
+    modifier: Modifier = Modifier,
+    title: String,
+    icon: ImageVector,
+    onClick: () -> Unit
+) {
+    Card(
+        modifier = modifier.clickable { onClick() },
+        colors = CardDefaults.cardColors(containerColor = DarkNavyCard),
+        shape = MaterialTheme.shapes.medium
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Surface(
+                modifier = Modifier.size(36.dp),
+                shape = MaterialTheme.shapes.small,
+                color = AccentBlue.copy(alpha = 0.2f)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(icon, contentDescription = null, tint = AccentBlue, modifier = Modifier.size(20.dp))
+                }
+            }
+            Text(title, fontWeight = FontWeight.SemiBold, fontSize = 14.sp, color = TextPrimary)
         }
     }
 }

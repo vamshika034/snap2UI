@@ -1,9 +1,9 @@
+
 package com.Snap2UI.app.ui.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,20 +19,27 @@ import com.Snap2UI.app.ui.theme.*
 fun SettingsScreen(
     onNavigateBack: () -> Unit
 ) {
-    var backendUrl by remember { mutableStateOf(Snap2ApiService.BASE_URL) }
     var darkTheme by remember { mutableStateOf(true) }
     var useMlModel by remember { mutableStateOf(true) }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Settings & Configuration") },
+                title = {
+                    Text("Settings & Configuration")
+                },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = TextPrimary)
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = TextPrimary
+                        )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = DarkNavyBackground)
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = DarkNavyBackground
+                )
             )
         },
         containerColor = DarkNavyBackground
@@ -44,15 +51,20 @@ fun SettingsScreen(
                 .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
-            Text("Backend FastAPI Connection", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+            Text(
+                "Backend FastAPI Connection",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = TextPrimary
+            )
 
             OutlinedTextField(
-                value = backendUrl,
-                onValueChange = {
-                    backendUrl = it
-                    Snap2ApiService.BASE_URL = it
+                value = Snap2ApiService.BASE_URL,
+                onValueChange = {},
+                readOnly = true,
+                label = {
+                    Text("Backend FastAPI URL")
                 },
-                label = { Text("Backend FastAPI URL") },
                 modifier = Modifier.fillMaxWidth(),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = AccentBlue,
@@ -66,18 +78,32 @@ fun SettingsScreen(
 
             HorizontalDivider(color = SurfaceColor)
 
-            Text("Preferences", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+            Text(
+                "Preferences",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = TextPrimary
+            )
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Dark Navy Theme", color = TextPrimary, fontSize = 14.sp)
+                Text(
+                    "Dark Navy Theme",
+                    color = TextPrimary,
+                    fontSize = 14.sp
+                )
+
                 Switch(
                     checked = darkTheme,
-                    onCheckedChange = { darkTheme = it },
-                    colors = SwitchDefaults.colors(checkedThumbColor = AccentBlue)
+                    onCheckedChange = {
+                        darkTheme = it
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedThumbColor = AccentBlue
+                    )
                 )
             }
 
@@ -86,13 +112,23 @@ fun SettingsScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Use Advanced ML / YOLO Detector", color = TextPrimary, fontSize = 14.sp)
+                Text(
+                    "Use Advanced ML / YOLO Detector",
+                    color = TextPrimary,
+                    fontSize = 14.sp
+                )
+
                 Switch(
                     checked = useMlModel,
-                    onCheckedChange = { useMlModel = it },
-                    colors = SwitchDefaults.colors(checkedThumbColor = AccentBlue)
+                    onCheckedChange = {
+                        useMlModel = it
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedThumbColor = AccentBlue
+                    )
                 )
             }
         }
     }
 }
+

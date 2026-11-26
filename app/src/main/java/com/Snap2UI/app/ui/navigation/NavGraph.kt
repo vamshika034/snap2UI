@@ -22,6 +22,11 @@ sealed class Screen(val route: String) {
     object Comparison : Screen("comparison")
     object History : Screen("history")
     object Settings : Screen("settings")
+    object VisualEditor : Screen("visual_editor")
+    object AiChat : Screen("ai_chat")
+    object MultiScreen : Screen("multi_screen")
+    object ResponsivePreview : Screen("responsive_preview")
+    object QualityReport : Screen("quality_report")
 }
 
 @Composable
@@ -46,7 +51,12 @@ fun Snap2UINavGraph() {
                 onNavigateToUpload = { navController.navigate(Screen.Upload.route) },
                 onNavigateToGenerator = { navController.navigate(Screen.Generator.route) },
                 onNavigateToHistory = { navController.navigate(Screen.History.route) },
-                onNavigateToSettings = { navController.navigate(Screen.Settings.route) }
+                onNavigateToSettings = { navController.navigate(Screen.Settings.route) },
+                onNavigateToVisualEditor = { navController.navigate(Screen.VisualEditor.route) },
+                onNavigateToAiChat = { navController.navigate(Screen.AiChat.route) },
+                onNavigateToMultiScreen = { navController.navigate(Screen.MultiScreen.route) },
+                onNavigateToResponsive = { navController.navigate(Screen.ResponsivePreview.route) },
+                onNavigateToQuality = { navController.navigate(Screen.QualityReport.route) }
             )
         }
         composable(Screen.Upload.route) {
@@ -107,6 +117,33 @@ fun Snap2UINavGraph() {
         }
         composable(Screen.Settings.route) {
             SettingsScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+        composable(Screen.VisualEditor.route) {
+            VisualEditorScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToPreview = { navController.navigate(Screen.Preview.route) }
+            )
+        }
+        composable(Screen.AiChat.route) {
+            AiChatAssistantScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+        composable(Screen.MultiScreen.route) {
+            MultiScreenProjectScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToPreview = { navController.navigate(Screen.Preview.route) }
+            )
+        }
+        composable(Screen.ResponsivePreview.route) {
+            ResponsivePreviewScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+        composable(Screen.QualityReport.route) {
+            QualityReportScreen(
                 onNavigateBack = { navController.popBackStack() }
             )
         }

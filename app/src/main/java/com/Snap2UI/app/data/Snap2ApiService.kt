@@ -1,8 +1,7 @@
+
 package com.Snap2UI.app.data
 
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
@@ -42,13 +41,15 @@ interface Snap2ApiService {
     ): PromptResponse
 
     companion object {
-        var BASE_URL: String = "http://10.0.2.2:8000/"
+
+        const val BASE_URL = "https://snap2ui-1.onrender.com/"
 
         fun create(): Snap2ApiService {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+
             return retrofit.create(Snap2ApiService::class.java)
         }
     }

@@ -44,6 +44,18 @@ android {
 }
 
 dependencies {
+
+
+        // Retrofit: Connect Android app to FastAPI backend
+        implementation("com.squareup.retrofit2:retrofit:2.11.0")
+
+        // Gson: Convert JSON responses into Kotlin objects
+        implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+        // OkHttp: Handle and monitor network requests
+        implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    
+
     implementation(libs.appcompat)
     implementation(libs.material)
     
