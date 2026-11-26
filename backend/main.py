@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 
@@ -13,11 +14,14 @@ from similarity import SimilarityAnalyzer
 from correction_engine import IterativeCorrectionEngine
 from quality_evaluator import UIQualityEvaluator
 from multiscreen_generator import MultiScreenGenerator
+from code_corrector import ComposeCodeCorrector
+from design_variations import DesignVariationsGenerator
+from project_exporter import ProjectExporter
 
 app = FastAPI(
-    title="Snap2UI Advanced AI Platform API",
-    description="AI-Powered Mobile UI Reconstruction, Multi-Screen Prototyping & Quality Evaluation API",
-    version="2.0.0"
+    title="Snap2UI Enterprise AI Platform API",
+    description="AI-Powered Mobile UI Reconstruction, Variations, Code Auto-Correction & ZIP Exporter API",
+    version="3.0.0"
 )
 
 app.add_middleware(
@@ -38,6 +42,9 @@ similarity_analyzer = SimilarityAnalyzer()
 correction_engine = IterativeCorrectionEngine()
 quality_evaluator = UIQualityEvaluator()
 multiscreen_generator = MultiScreenGenerator()
+code_corrector = ComposeCodeCorrector()
+design_variations = DesignVariationsGenerator()
+project_exporter = ProjectExporter()
 
 class PromptRequest(BaseModel):
     app_type: str
@@ -64,12 +71,21 @@ class MultiScreenRequest(BaseModel):
 class QualityRequest(BaseModel):
     components: List[Dict[str, Any]]
 
+class CodeAutoFixRequest(BaseModel):
+    code: str
+    compose_version: Optional[str] = "1.6.0"
+
+class ExportRequest(BaseModel):
+    project_name: str
+    compose_code: str
+    xml_code: str
+
 
 @app.get("/")
 def health_check():
     return {
         "status": "online",
-        "message": "Snap2UI Advanced AI Platform backend is running successfully."
+        "message": "Snap2UI Enterprise AI Platform backend is running successfully."
     }
 
 
@@ -193,3 +209,22 @@ async def generate_multi_screen(req: MultiScreenRequest):
 async def evaluate_quality(req: QualityRequest):
     report = quality_evaluator.evaluate_quality(req.components)
     return {"status": "success", "quality_report": report}
+
+@app.post("/api/auto-fix-compose")
+async def auto_fix_compose(req: CodeAutoFixRequest):
+    result = code_corrector.auto_fix_code(req.code, req.compose_version)
+    return {"status": "success", "auto_fix": result}
+
+@app.get("/api/design-variations")
+async def get_design_variations(app_title: str = "Snap2UI App"):
+    variations = design_variations.generate_variations(app_title)
+    return {"status": "success", "variations": variations}
+
+@app.post("/api/export-project")
+async def export_project_zip(req: ExportRequest):
+    zip_bytes = project_exporter.create_project_zip(req.project_name, req.compose_code, req.xml_code)
+    return Response(
+        content=zip_bytes,
+        media_type="application/zip",
+        headers={"Content-Disposition": f"attachment; filename={req.project_name}.zip"}
+    )
