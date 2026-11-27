@@ -215,10 +215,26 @@ async def auto_fix_compose(req: CodeAutoFixRequest):
     result = code_corrector.auto_fix_code(req.code, req.compose_version)
     return {"status": "success", "auto_fix": result}
 
+
 @app.get("/api/design-variations")
 async def get_design_variations(app_title: str = "Snap2UI App"):
-    variations = design_variations.generate_variations(app_title)
-    return {"status": "success", "variations": variations}
+    try:
+        variations = design_variations.generate_variations(app_title)
+
+        return {
+            "status": "success",
+            "app_title": app_title,
+            "total_variations": len(variations),
+            "variations": variations
+        }
+
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e),
+            "variations": []
+        }
+
 
 @app.post("/api/export-project")
 async def export_project_zip(req: ExportRequest):

@@ -27,197 +27,201 @@
 </head>
 <body class="bg-darkNavy text-white min-h-screen flex flex-col font-sans selection:bg-accentBlue selection:text-white">
 
-    <!-- Header Navbar -->
-    <header class="border-b border-gray-800 bg-cardNavy/50 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('dashboard')">
-                <div class="w-10 h-10 rounded-xl bg-accentBlue/20 flex items-center justify-center text-accentBlue">
-                    <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
-                </div>
-                <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-accentBlue to-accentViolet bg-clip-text text-transparent">Snap2UI Enterprise</span>
+<!-- Header Navbar -->
+<header class="border-b border-gray-800 bg-cardNavy/50 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('dashboard')">
+            <div class="w-10 h-10 rounded-xl bg-accentBlue/20 flex items-center justify-center text-accentBlue">
+                <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
             </div>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                <button onclick="switchTab('dashboard')" id="nav-dashboard" class="text-accentBlue transition hover:text-accentBlue">Dashboard</button>
-                <button onclick="switchTab('upload')" id="nav-upload" class="text-gray-400 transition hover:text-accentBlue">Upload & Recon</button>
-                <button onclick="switchTab('preview')" id="nav-preview" class="text-gray-400 transition hover:text-accentBlue">Live WebView</button>
-                <button onclick="switchTab('variations')" id="nav-variations" class="text-gray-400 transition hover:text-accentBlue">AI Variations</button>
-                <button onclick="switchTab('code')" id="nav-code" class="text-gray-400 transition hover:text-accentBlue">Auto-Fix & Code</button>
-                <button onclick="switchTab('export')" id="nav-export" class="text-gray-400 transition hover:text-accentBlue">Export ZIP</button>
-                <button onclick="switchTab('history')" id="nav-history" class="text-gray-400 transition hover:text-accentBlue">Project History</button>
-            </nav>
-            <div class="flex items-center space-x-3">
+            <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-accentBlue to-accentViolet bg-clip-text text-transparent">Snap2UI Enterprise</span>
+        </div>
+        <nav class="hidden md:flex space-x-6 text-sm font-medium">
+            <button onclick="switchTab('dashboard')" id="nav-dashboard" class="text-accentBlue transition hover:text-accentBlue">Dashboard</button>
+            <button onclick="switchTab('upload')" id="nav-upload" class="text-gray-400 transition hover:text-accentBlue">Upload & Recon</button>
+            <button onclick="switchTab('preview')" id="nav-preview" class="text-gray-400 transition hover:text-accentBlue">Live WebView</button>
+            <button onclick="switchTab('variations')" id="nav-variations" class="text-gray-400 transition hover:text-accentBlue">AI Variations</button>
+            <button onclick="switchTab('code')" id="nav-code" class="text-gray-400 transition hover:text-accentBlue">Auto-Fix & Code</button>
+            <button onclick="switchTab('export')" id="nav-export" class="text-gray-400 transition hover:text-accentBlue">Export ZIP</button>
+            <button onclick="switchTab('history')" id="nav-history" class="text-gray-400 transition hover:text-accentBlue">Project History</button>
+        </nav>
+        <div class="flex items-center space-x-3">
                 <span id="backend-status" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20">
                     <span class="w-2 h-2 mr-1.5 rounded-full bg-green-400 animate-pulse"></span> Render Cloud Live
                 </span>
+        </div>
+    </div>
+</header>
+
+<!-- Main Container -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+    <!-- TAB 1: DASHBOARD -->
+    <section id="tab-dashboard" class="space-y-8">
+        <div class="bg-gradient-to-r from-indigo-950/60 to-cardNavy border border-gray-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+            <div class="relative z-10 max-w-2xl">
+                <span class="text-accentBlue text-xs font-semibold uppercase tracking-wider bg-accentBlue/10 px-3 py-1 rounded-full border border-accentBlue/20">Enterprise AI UI Platform</span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold mt-4 mb-3 tracking-tight">AI-Powered Mobile UI Reconstruction & Code Studio</h1>
+                <p class="text-gray-400 text-base mb-6">Upload mobile screenshots, visualize HTML/CSS rendered previews inside mobile phone frames, auto-fix Jetpack Compose errors, generate design variations, and export complete Android Studio ZIP packages.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="switchTab('upload')" class="bg-accentBlue hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-accentBlue/25 transition flex items-center space-x-2">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>Upload Screenshot</span>
+                    </button>
+                    <button onclick="switchTab('variations')" class="bg-surfaceDark hover:bg-gray-800 border border-gray-700 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center space-x-2">
+                        <i class="fa-solid fa-shapes"></i>
+                        <span>Explore AI Variations</span>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
 
-    <!-- Main Container -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-
-        <!-- TAB 1: DASHBOARD -->
-        <section id="tab-dashboard" class="space-y-8">
-            <div class="bg-gradient-to-r from-indigo-950/60 to-cardNavy border border-gray-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-                <div class="relative z-10 max-w-2xl">
-                    <span class="text-accentBlue text-xs font-semibold uppercase tracking-wider bg-accentBlue/10 px-3 py-1 rounded-full border border-accentBlue/20">Enterprise AI UI Platform</span>
-                    <h1 class="text-3xl sm:text-4xl font-extrabold mt-4 mb-3 tracking-tight">AI-Powered Mobile UI Reconstruction & Code Studio</h1>
-                    <p class="text-gray-400 text-base mb-6">Upload mobile screenshots, visualize HTML/CSS rendered previews inside mobile phone frames, auto-fix Jetpack Compose errors, generate design variations, and export complete Android Studio ZIP packages.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="switchTab('upload')" class="bg-accentBlue hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-accentBlue/25 transition flex items-center space-x-2">
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                            <span>Upload Screenshot</span>
-                        </button>
-                        <button onclick="switchTab('variations')" class="bg-surfaceDark hover:bg-gray-800 border border-gray-700 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center space-x-2">
-                            <i class="fa-solid fa-shapes"></i>
-                            <span>Explore AI Variations</span>
-                        </button>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-accentBlue/10 flex items-center justify-center text-accentBlue mb-4">
+                    <i class="fa-solid fa-mobile-screen text-xl"></i>
                 </div>
+                <h3 class="text-lg font-bold mb-2">WebView Visual Reconstruction</h3>
+                <p class="text-gray-400 text-sm">Renders actual HTML/CSS mobile designs inside realistic phone frames with scrolling and light/dark modes.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/10 flex items-center justify-center text-accentBlue mb-4">
-                        <i class="fa-solid fa-mobile-screen text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">WebView Visual Reconstruction</h3>
-                    <p class="text-gray-400 text-sm">Renders actual HTML/CSS mobile designs inside realistic phone frames with scrolling and light/dark modes.</p>
+            <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-accentViolet/10 flex items-center justify-center text-accentViolet mb-4">
+                    <i class="fa-solid fa-shapes text-xl"></i>
                 </div>
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl">
-                    <div class="w-12 h-12 rounded-xl bg-accentViolet/10 flex items-center justify-center text-accentViolet mb-4">
-                        <i class="fa-solid fa-shapes text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">3 AI Design Variations</h3>
-                    <p class="text-gray-400 text-sm">Instantly generates Closest Match, Modern & Minimal, and Creative & Premium alternative redesigns.</p>
-                </div>
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl">
-                    <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 mb-4">
-                        <i class="fa-solid fa-file-zipper text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Complete Android ZIP Export</h3>
-                    <p class="text-gray-400 text-sm">Packages Jetpack Compose Kotlin files, XML layouts, Gradle configs, and README into a ready-to-run ZIP archive.</p>
-                </div>
+                <h3 class="text-lg font-bold mb-2">3 AI Design Variations</h3>
+                <p class="text-gray-400 text-sm">Instantly generates Closest Match, Modern & Minimal, and Creative & Premium alternative redesigns.</p>
             </div>
-        </section>
-
-        <!-- TAB 2: UPLOAD & RECONSTRUCTION -->
-        <section id="tab-upload" class="hidden space-y-8 max-w-3xl mx-auto">
-            <div class="text-center">
-                <h2 class="text-2xl font-bold">Screenshot-to-UI Visual Reconstruction</h2>
-                <p class="text-gray-400 text-sm mt-1">Upload any mobile screenshot to analyze layout hierarchy, estimate typography, and reconstruct the interface.</p>
-            </div>
-
-            <div class="bg-cardNavy border-2 border-dashed border-gray-700 hover:border-accentBlue rounded-2xl p-10 text-center cursor-pointer transition relative">
-                <input type="file" id="screenshot-file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="handleFileSelect(event)">
-                <div class="w-16 h-16 rounded-full bg-accentBlue/10 text-accentBlue flex items-center justify-center mx-auto mb-4 text-2xl">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
+            <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 mb-4">
+                    <i class="fa-solid fa-file-zipper text-xl"></i>
                 </div>
-                <p class="text-lg font-semibold">Drag & drop screenshot here, or <span class="text-accentBlue underline">browse</span></p>
-                <p class="text-xs text-gray-500 mt-2">Supports PNG, JPG up to 25MB</p>
+                <h3 class="text-lg font-bold mb-2">Complete Android ZIP Export</h3>
+                <p class="text-gray-400 text-sm">Packages Jetpack Compose Kotlin files, XML layouts, Gradle configs, and README into a ready-to-run ZIP archive.</p>
             </div>
+        </div>
+    </section>
 
-            <div id="preview-container" class="hidden bg-cardNavy border border-gray-800 rounded-2xl p-6 flex flex-col items-center">
-                <img id="image-preview" src="" alt="Uploaded Screenshot" class="max-h-80 rounded-lg shadow-md mb-4 border border-gray-700">
-                <button onclick="runVisualReconstruction()" class="bg-accentBlue hover:bg-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>Run Visual Reconstruction & AI Analysis</span>
+    <!-- TAB 2: UPLOAD & RECONSTRUCTION -->
+    <section id="tab-upload" class="hidden space-y-8 max-w-3xl mx-auto">
+        <div class="text-center">
+            <h2 class="text-2xl font-bold">Screenshot-to-UI Visual Reconstruction</h2>
+            <p class="text-gray-400 text-sm mt-1">Upload any mobile screenshot to analyze layout hierarchy, estimate typography, and reconstruct the interface.</p>
+        </div>
+
+        <div class="bg-cardNavy border-2 border-dashed border-gray-700 hover:border-accentBlue rounded-2xl p-10 text-center cursor-pointer transition relative">
+            <input type="file" id="screenshot-file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="handleFileSelect(event)">
+            <div class="w-16 h-16 rounded-full bg-accentBlue/10 text-accentBlue flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <p class="text-lg font-semibold">Drag & drop screenshot here, or <span class="text-accentBlue underline">browse</span></p>
+            <p class="text-xs text-gray-500 mt-2">Supports PNG, JPG up to 25MB</p>
+        </div>
+
+        <div id="preview-container" class="hidden bg-cardNavy border border-gray-800 rounded-2xl p-6 flex flex-col items-center">
+            <img id="image-preview" src="" alt="Uploaded Screenshot" class="max-h-80 rounded-lg shadow-md mb-4 border border-gray-700">
+            <button onclick="runVisualReconstruction()" class="bg-accentBlue hover:bg-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Run Visual Reconstruction & AI Analysis</span>
+            </button>
+        </div>
+
+        <div id="loading-spinner" class="hidden text-center py-12 space-y-4">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-accentBlue border-t-transparent"></div>
+            <p class="text-gray-400 font-medium">Analyzing layout hierarchy, running OCR & generating visual design...</p>
+        </div>
+    </section>
+
+    <!-- TAB 3: LIVE WEBVIEW PREVIEW -->
+    <section id="tab-preview" class="hidden space-y-8">
+        <div class="flex justify-between items-center bg-cardNavy border border-gray-800 p-4 rounded-2xl">
+            <div class="flex items-center space-x-3">
+                <span class="font-bold">Device Mode:</span>
+                <button onclick="setDeviceMode('phone')" id="mode-phone" class="px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-semibold">Mobile Phone</button>
+                <button onclick="setDeviceMode('tablet')" id="mode-tablet" class="px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-400 text-sm font-semibold">Tablet</button>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleThemeMode()" id="theme-toggle-btn" class="px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-200 text-sm font-medium">
+                    <i class="fa-solid fa-moon mr-1"></i> Dark Mode
+                </button>
+                <button onclick="runVisualReconstruction()" class="px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-medium">
+                    <i class="fa-solid fa-rotate mr-1"></i> Refresh Preview
                 </button>
             </div>
+        </div>
 
-            <div id="loading-spinner" class="hidden text-center py-12 space-y-4">
-                <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-accentBlue border-t-transparent"></div>
-                <p class="text-gray-400 font-medium">Analyzing layout hierarchy, running OCR & generating visual design...</p>
-            </div>
-        </section>
-
-        <!-- TAB 3: LIVE WEBVIEW PREVIEW -->
-        <section id="tab-preview" class="hidden space-y-8">
-            <div class="flex justify-between items-center bg-cardNavy border border-gray-800 p-4 rounded-2xl">
-                <div class="flex items-center space-x-3">
-                    <span class="font-bold">Device Mode:</span>
-                    <button onclick="setDeviceMode('phone')" id="mode-phone" class="px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-semibold">Mobile Phone</button>
-                    <button onclick="setDeviceMode('tablet')" id="mode-tablet" class="px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-400 text-sm font-semibold">Tablet</button>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <button onclick="toggleThemeMode()" id="theme-toggle-btn" class="px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-200 text-sm font-medium">
-                        <i class="fa-solid fa-moon mr-1"></i> Dark Mode
-                    </button>
-                    <button onclick="runVisualReconstruction()" class="px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-medium">
-                        <i class="fa-solid fa-rotate mr-1"></i> Refresh Preview
-                    </button>
-                </div>
-            </div>
-
-            <div class="flex justify-center">
-                <!-- Realistic Mobile Phone Frame -->
-                <div id="phone-frame" class="w-full max-w-md bg-darkNavy border-8 border-gray-700 rounded-[40px] p-4 shadow-2xl overflow-hidden min-h-[640px] flex flex-col relative">
-                    <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-32 h-4 bg-gray-700 rounded-bottom-full z-20"></div>
-                    <!-- WebView Simulation Container -->
-                    <div id="webview-render-container" class="flex-grow bg-slate-900 rounded-3xl p-6 overflow-y-auto mt-4 space-y-4">
-                        <div class="text-center py-10 space-y-3">
-                            <div class="w-12 h-12 rounded-full bg-accentBlue/20 text-accentBlue flex items-center justify-center mx-auto text-xl">
-                                <i class="fa-solid fa-mobile-screen"></i>
-                            </div>
-                            <h3 class="font-bold text-lg">Reconstructed UI Preview</h3>
-                            <p class="text-xs text-gray-400">Upload a screenshot in 'Upload & Recon' to render your live interface here.</p>
+        <div class="flex justify-center">
+            <!-- Realistic Mobile Phone Frame -->
+            <div id="phone-frame" class="w-full max-w-md bg-darkNavy border-8 border-gray-700 rounded-[40px] p-4 shadow-2xl overflow-hidden min-h-[640px] flex flex-col relative">
+                <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-32 h-4 bg-gray-700 rounded-bottom-full z-20"></div>
+                <!-- WebView Simulation Container -->
+                <div id="webview-render-container" class="flex-grow bg-slate-900 rounded-3xl p-6 overflow-y-auto mt-4 space-y-4">
+                    <div class="text-center py-10 space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-accentBlue/20 text-accentBlue flex items-center justify-center mx-auto text-xl">
+                            <i class="fa-solid fa-mobile-screen"></i>
                         </div>
+                        <h3 class="font-bold text-lg">Reconstructed UI Preview</h3>
+                        <p class="text-xs text-gray-400">Upload a screenshot in 'Upload & Recon' to render your live interface here.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- TAB 4: AI DESIGN VARIATIONS -->
-        <section id="tab-variations" class="hidden space-y-8 max-w-5xl mx-auto">
-            <div class="text-center">
-                <h2 class="text-2xl font-bold">AI Design Variations</h2>
-                <p class="text-gray-400 text-sm mt-1">Generate 3 distinct UI variations from your uploaded design or prompt.</p>
+    <!-- TAB 4: AI DESIGN VARIATIONS -->
+
+    <section id="tab-variations" class="hidden space-y-8 max-w-5xl mx-auto">
+        <div class="text-center space-y-3">
+            <h2 class="text-2xl font-bold">AI Design Variations</h2>
+            <p class="text-gray-400 text-sm">
+                Generate three different designs and choose the one you like.
+            </p>
+
+            <div class="max-w-md mx-auto">
+                <input
+                        id="variation-app-title"
+                        type="text"
+                        value="Snap2UI App"
+                        placeholder="Enter your app name"
+                        class="w-full bg-surfaceDark border border-gray-700 rounded-xl px-4 py-3 text-white"
+                />
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="variations-grid">
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <span class="text-xs font-semibold text-accentBlue bg-accentBlue/10 px-3 py-1 rounded-full border border-accentBlue/20">Variation 1</span>
-                        <h3 class="text-xl font-bold">Closest Match</h3>
-                        <p class="text-gray-400 text-sm">Faithful reconstruction preserving exact original layout structure and color palette.</p>
-                    </div>
-                    <button onclick="selectVariation('var_1')" class="w-full bg-accentBlue hover:bg-blue-600 text-white font-semibold py-2.5 rounded-xl transition">Select & Edit</button>
-                </div>
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <span class="text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">Variation 2</span>
-                        <h3 class="text-xl font-bold">Modern & Minimal</h3>
-                        <p class="text-gray-400 text-sm">Clean whitespace, rounded cards, subtle shadows, and streamlined typography.</p>
-                    </div>
-                    <button onclick="selectVariation('var_2')" class="w-full bg-surfaceDark hover:bg-gray-700 text-white font-semibold py-2.5 rounded-xl transition">Select & Edit</button>
-                </div>
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <span class="text-xs font-semibold text-accentViolet bg-accentViolet/10 px-3 py-1 rounded-full border border-accentViolet/20">Variation 3</span>
-                        <h3 class="text-xl font-bold">Creative & Premium</h3>
-                        <p class="text-gray-400 text-sm">Vibrant gradients, high-contrast violet accents, and luxurious card layouts.</p>
-                    </div>
-                    <button onclick="selectVariation('var_3')" class="w-full bg-surfaceDark hover:bg-gray-700 text-white font-semibold py-2.5 rounded-xl transition">Select & Edit</button>
-                </div>
-            </div>
-        </section>
+            <button
+                    onclick="generateDesignVariations()"
+                    id="generate-variations-btn"
+                    class="bg-accentBlue hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl transition">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>
+                Generate 3 Variations
+            </button>
 
-        <!-- TAB 5: AUTO-FIX & CODE STUDIO -->
-        <section id="tab-code" class="hidden space-y-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl flex flex-col space-y-4">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-bold">Jetpack Compose Code Studio</h3>
-                        <div class="flex space-x-2">
-                            <button onclick="checkCode()" class="bg-surfaceDark hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-lg text-sm font-medium">
-                                <i class="fa-solid fa-stethoscope mr-1 text-accentBlue"></i> Check Code
-                            </button>
-                            <button onclick="autoFixCode()" class="bg-accentBlue hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-semibold shadow">
-                                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Auto-Fix
-                            </button>
-                        </div>
+            <p id="variations-status" class="text-sm text-gray-400"></p>
+        </div>
+
+        <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-6"
+                id="variations-grid">
+            <div class="col-span-full text-center text-gray-400 p-8">
+                Click Generate 3 Variations to create your designs.
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB 5: AUTO-FIX & CODE STUDIO -->
+    <section id="tab-code" class="hidden space-y-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl flex flex-col space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-bold">Jetpack Compose Code Studio</h3>
+                    <div class="flex space-x-2">
+                        <button onclick="checkCode()" class="bg-surfaceDark hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-lg text-sm font-medium">
+                            <i class="fa-solid fa-stethoscope mr-1 text-accentBlue"></i> Check Code
+                        </button>
+                        <button onclick="autoFixCode()" class="bg-accentBlue hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-semibold shadow">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Auto-Fix
+                        </button>
                     </div>
-                    <div class="flex-grow bg-darkNavy border border-gray-800 rounded-xl p-4 overflow-x-auto font-mono text-xs text-gray-300 max-h-[420px]">
+                </div>
+                <div class="flex-grow bg-darkNavy border border-gray-800 rounded-xl p-4 overflow-x-auto font-mono text-xs text-gray-300 max-h-[420px]">
                         <pre><code id="code-output">@Composable
 fun ReconstructedScreen() {
     Box(modifier = Modifier.fillMaxSize().background(Color(0xFF0A0F1D))) {
@@ -226,263 +230,386 @@ fun ReconstructedScreen() {
         }
     }
 }</code></pre>
-                    </div>
-                </div>
-
-                <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <h3 class="text-lg font-bold">AI Auto-Fix Verification</h3>
-                        <div id="autofix-status-box" class="bg-surfaceDark border border-gray-700 p-4 rounded-xl text-xs space-y-2">
-                            <div class="font-bold text-successGreen" id="autofix-status-title">Status: Validated & Ready</div>
-                            <p class="text-gray-300" id="autofix-summary">All imports, @Composable annotations, and braces verified.</p>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <button onclick="copyCode()" class="w-full bg-surfaceDark hover:bg-gray-700 text-white py-3 rounded-xl font-medium transition">
-                            <i class="fa-solid fa-copy mr-2"></i> Copy Kotlin Code
-                        </button>
-                        <button onclick="switchTab('export')" class="w-full bg-accentBlue hover:bg-blue-600 text-white py-3 rounded-xl font-semibold transition">
-                            <i class="fa-solid fa-file-zipper mr-2"></i> Proceed to Export ZIP
-                        </button>
-                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- TAB 6: COMPLETE PROJECT EXPORT -->
-        <section id="tab-export" class="hidden space-y-8 max-w-2xl mx-auto text-center">
-            <div class="space-y-3">
-                <h2 class="text-2xl font-bold">Complete Android Project Export</h2>
-                <p class="text-gray-400 text-sm">Download your generated Jetpack Compose source files, XML layouts, and Gradle configuration packaged in a clean Android Studio ZIP structure.</p>
-            </div>
-
-            <div class="bg-cardNavy border border-gray-800 p-8 rounded-2xl space-y-6">
-                <div class="w-20 h-20 bg-accentBlue/10 text-accentBlue rounded-3xl flex items-center justify-center mx-auto text-3xl">
-                    <i class="fa-solid fa-file-zipper"></i>
-                </div>
-                <div class="space-y-2">
-                    <h3 class="text-xl font-bold">Snap2UI_Android_Project.zip</h3>
-                    <p class="text-xs text-gray-400">Includes ReconstructedScreen.kt, activity_main.xml, build.gradle.kts & README.md</p>
-                </div>
-                <button onclick="exportProjectZip()" class="w-full bg-successGreen hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-500/25 transition flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-download text-lg"></i>
-                    <span>Download Android Studio ZIP Package</span>
-                </button>
-            </div>
-        </section>
-
-        <!-- TAB 7: PROJECT HISTORY -->
-        <section id="tab-history" class="hidden space-y-8 max-w-4xl mx-auto">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h2 class="text-2xl font-bold">Project History & Versions</h2>
-                    <p class="text-gray-400 text-sm mt-1">Manage saved projects, thumbnails, and previous reconstruction runs.</p>
-                </div>
-                <button onclick="saveCurrentProject()" class="bg-accentBlue hover:bg-blue-600 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition">
-                    <i class="fa-solid fa-plus mr-1"></i> Save Current Project
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="history-grid">
-                <div class="bg-cardNavy border border-gray-800 p-5 rounded-2xl flex items-center justify-between">
-                    <div class="space-y-1">
-                        <div class="font-bold text-base">E-Commerce Checkout App</div>
-                        <div class="text-xs text-gray-400">Reconstructed via OpenCV • SSIM: 94.5%</div>
-                        <div class="text-[10px] text-accentBlue">Today, 10:45 AM</div>
-                    </div>
-                    <button onclick="switchTab('preview')" class="bg-surfaceDark hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded-lg text-xs font-semibold">Open</button>
-                </div>
-                <div class="bg-cardNavy border border-gray-800 p-5 rounded-2xl flex items-center justify-between">
-                    <div class="space-y-1">
-                        <div class="font-bold text-base">Fintech Mobile Dashboard</div>
-                        <div class="text-xs text-gray-400">AI Prompt Generated • SSIM: 96.2%</div>
-                        <div class="text-[10px] text-accentBlue">Yesterday, 4:20 PM</div>
-                    </div>
-                    <button onclick="switchTab('preview')" class="bg-surfaceDark hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded-lg text-xs font-semibold">Open</button>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-gray-800 bg-cardNavy/30 py-6 mt-auto text-center text-xs text-gray-500">
-        <p>Snap2UI Enterprise Platform • Powered by FastAPI & Android Jetpack Compose</p>
-    </footer>
-
-    <!-- JavaScript Controller -->
-    <script>
-        const API_BASE = "https://snap2ui-1.onrender.com";
-        let currentFile = null;
-        let lastGeneratedCompose = "";
-        let lastGeneratedXml = "";
-
-        function switchTab(tabId) {
-            ['dashboard', 'upload', 'preview', 'variations', 'code', 'export', 'history'].forEach(t => {
-                document.getElementById(`tab-${t}`).classList.add('hidden');
-                const nav = document.getElementById(`nav-${t}`);
-                if (nav) {
-                    nav.classList.remove('text-accentBlue');
-                    nav.classList.add('text-gray-400');
-                }
-            });
-            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
-            const activeNav = document.getElementById(`nav-${tabId}`);
-            if (activeNav) {
-                activeNav.classList.remove('text-gray-400');
-                activeNav.classList.add('text-accentBlue');
-            }
-        }
-
-        function handleFileSelect(event) {
-            const file = event.target.files[0];
-            if (file) {
-                currentFile = file;
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('image-preview').src = e.target.result;
-                    document.getElementById('preview-container').classList.remove('hidden');
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-
-        async function runVisualReconstruction() {
-            if (!currentFile) {
-                alert("Please select a screenshot in 'Upload & Recon' first.");
-                switchTab('upload');
-                return;
-            }
-            document.getElementById('loading-spinner').classList.remove('hidden');
-            document.getElementById('preview-container').classList.add('hidden');
-
-            const formData = new FormData();
-            formData.append('file', currentFile);
-
-            try {
-                const res = await fetch(`${API_BASE}/api/generate/compose`, { method: 'POST', body: formData });
-                const data = await res.json();
-                lastGeneratedCompose = data.compose_code;
-
-                const xmlRes = await fetch(`${API_BASE}/api/generate/xml`, { method: 'POST', body: formData });
-                const xmlData = await xmlRes.json();
-                lastGeneratedXml = xmlData.xml_code;
-
-                document.getElementById('loading-spinner').classList.add('hidden');
-                renderWebViewPreview(lastGeneratedCompose);
-                switchTab('preview');
-            } catch (err) {
-                console.error(err);
-                document.getElementById('loading-spinner').classList.add('hidden');
-                renderWebViewPreview(lastGeneratedCompose);
-                switchTab('preview');
-            }
-        }
-
-        function renderWebViewPreview(composeCode) {
-            const container = document.getElementById('webview-render-container');
-            container.innerHTML = `
-                <div class="bg-surfaceDark p-5 rounded-2xl border border-gray-700 space-y-4 shadow-lg">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-bold text-accentBlue uppercase tracking-wider">Reconstructed Mobile Interface</span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-successGreen"></span>
-                    </div>
-                    <h2 class="text-xl font-black text-white">Welcome to Snap2UI</h2>
-                    <p class="text-xs text-gray-400">Successfully reconstructed from screenshot using OpenCV & OCR.</p>
-                    <div class="space-y-3 pt-2">
-                        <div class="bg-darkNavy p-3 rounded-xl border border-gray-800 text-xs text-gray-300">Email Address Input</div>
-                        <div class="bg-darkNavy p-3 rounded-xl border border-gray-800 text-xs text-gray-300">Password Input</div>
-                        <button class="w-full bg-accentBlue text-white font-bold py-3 rounded-xl shadow-md">Sign In / Continue</button>
+            <div class="bg-cardNavy border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold">AI Auto-Fix Verification</h3>
+                    <div id="autofix-status-box" class="bg-surfaceDark border border-gray-700 p-4 rounded-xl text-xs space-y-2">
+                        <div class="font-bold text-successGreen" id="autofix-status-title">Status: Validated & Ready</div>
+                        <p class="text-gray-300" id="autofix-summary">All imports, @Composable annotations, and braces verified.</p>
                     </div>
                 </div>
-            `;
-            document.getElementById('code-output').textContent = composeCode;
-        }
+                <div class="space-y-3">
+                    <button onclick="copyCode()" class="w-full bg-surfaceDark hover:bg-gray-700 text-white py-3 rounded-xl font-medium transition">
+                        <i class="fa-solid fa-copy mr-2"></i> Copy Kotlin Code
+                    </button>
+                    <button onclick="switchTab('export')" class="w-full bg-accentBlue hover:bg-blue-600 text-white py-3 rounded-xl font-semibold transition">
+                        <i class="fa-solid fa-file-zipper mr-2"></i> Proceed to Export ZIP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function setDeviceMode(mode) {
-            const frame = document.getElementById('phone-frame');
-            const btnPhone = document.getElementById('mode-phone');
-            const btnTablet = document.getElementById('mode-tablet');
-            if (mode === 'tablet') {
-                frame.className = "w-full max-w-3xl bg-darkNavy border-8 border-gray-700 rounded-3xl p-6 shadow-2xl overflow-hidden min-h-[500px] flex flex-col relative";
-                btnTablet.className = "px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-semibold";
-                btnPhone.className = "px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-400 text-sm font-semibold";
-            } else {
-                frame.className = "w-full max-w-md bg-darkNavy border-8 border-gray-700 rounded-[40px] p-4 shadow-2xl overflow-hidden min-h-[640px] flex flex-col relative";
-                btnPhone.className = "px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-semibold";
-                btnTablet.className = "px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-400 text-sm font-semibold";
+    <!-- TAB 6: COMPLETE PROJECT EXPORT -->
+    <section id="tab-export" class="hidden space-y-8 max-w-2xl mx-auto text-center">
+        <div class="space-y-3">
+            <h2 class="text-2xl font-bold">Complete Android Project Export</h2>
+            <p class="text-gray-400 text-sm">Download your generated Jetpack Compose source files, XML layouts, and Gradle configuration packaged in a clean Android Studio ZIP structure.</p>
+        </div>
+
+        <div class="bg-cardNavy border border-gray-800 p-8 rounded-2xl space-y-6">
+            <div class="w-20 h-20 bg-accentBlue/10 text-accentBlue rounded-3xl flex items-center justify-center mx-auto text-3xl">
+                <i class="fa-solid fa-file-zipper"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-xl font-bold">Snap2UI_Android_Project.zip</h3>
+                <p class="text-xs text-gray-400">Includes ReconstructedScreen.kt, activity_main.xml, build.gradle.kts & README.md</p>
+            </div>
+            <button onclick="exportProjectZip()" class="w-full bg-successGreen hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-500/25 transition flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-download text-lg"></i>
+                <span>Download Android Studio ZIP Package</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- TAB 7: PROJECT HISTORY -->
+    <section id="tab-history" class="hidden space-y-8 max-w-4xl mx-auto">
+        <div class="flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold">Project History & Versions</h2>
+                <p class="text-gray-400 text-sm mt-1">Manage saved projects, thumbnails, and previous reconstruction runs.</p>
+            </div>
+            <button onclick="saveCurrentProject()" class="bg-accentBlue hover:bg-blue-600 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition">
+                <i class="fa-solid fa-plus mr-1"></i> Save Current Project
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="history-grid">
+            <div class="bg-cardNavy border border-gray-800 p-5 rounded-2xl flex items-center justify-between">
+                <div class="space-y-1">
+                    <div class="font-bold text-base">E-Commerce Checkout App</div>
+                    <div class="text-xs text-gray-400">Reconstructed via OpenCV • SSIM: 94.5%</div>
+                    <div class="text-[10px] text-accentBlue">Today, 10:45 AM</div>
+                </div>
+                <button onclick="switchTab('preview')" class="bg-surfaceDark hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded-lg text-xs font-semibold">Open</button>
+            </div>
+            <div class="bg-cardNavy border border-gray-800 p-5 rounded-2xl flex items-center justify-between">
+                <div class="space-y-1">
+                    <div class="font-bold text-base">Fintech Mobile Dashboard</div>
+                    <div class="text-xs text-gray-400">AI Prompt Generated • SSIM: 96.2%</div>
+                    <div class="text-[10px] text-accentBlue">Yesterday, 4:20 PM</div>
+                </div>
+                <button onclick="switchTab('preview')" class="bg-surfaceDark hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded-lg text-xs font-semibold">Open</button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-gray-800 bg-cardNavy/30 py-6 mt-auto text-center text-xs text-gray-500">
+    <p>Snap2UI Enterprise Platform • Powered by FastAPI & Android Jetpack Compose</p>
+</footer>
+
+<!-- JavaScript Controller -->
+<script>
+    const API_BASE = "http://127.0.0.1:8000";
+    let currentFile = null;
+    let lastGeneratedCompose = "";
+    let lastGeneratedXml = "";
+    let currentVariations = [];
+
+    function switchTab(tabId) {
+        ['dashboard', 'upload', 'preview', 'variations', 'code', 'export', 'history'].forEach(t => {
+            document.getElementById(`tab-${t}`).classList.add('hidden');
+            const nav = document.getElementById(`nav-${t}`);
+            if (nav) {
+                nav.classList.remove('text-accentBlue');
+                nav.classList.add('text-gray-400');
             }
+        });
+        document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+        const activeNav = document.getElementById(`nav-${tabId}`);
+        if (activeNav) {
+            activeNav.classList.remove('text-gray-400');
+            activeNav.classList.add('text-accentBlue');
         }
+    }
 
-        let isDarkMode = true;
-        function toggleThemeMode() {
-            isDarkMode = !isDarkMode;
-            const btn = document.getElementById('theme-toggle-btn');
-            const container = document.getElementById('webview-render-container');
-            if (isDarkMode) {
-                btn.innerHTML = '<i class="fa-solid fa-moon mr-1"></i> Dark Mode';
-                container.className = "flex-grow bg-slate-900 rounded-3xl p-6 overflow-y-auto mt-4 space-y-4 text-white";
-            } else {
-                btn.innerHTML = '<i class="fa-solid fa-sun mr-1"></i> Light Mode';
-                container.className = "flex-grow bg-gray-100 rounded-3xl p-6 overflow-y-auto mt-4 space-y-4 text-gray-900";
+    function handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (file) {
+            currentFile = file;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('image-preview').src = e.target.result;
+                document.getElementById('preview-container').classList.remove('hidden');
             }
+            reader.readAsDataURL(file);
         }
+    }
 
-        async function selectVariation(varId) {
-            alert(`Selected ${varId}: Applied design variation successfully! Redirecting to Live WebView.`);
+    async function runVisualReconstruction() {
+        if (!currentFile) {
+            alert("Please select a screenshot in 'Upload & Recon' first.");
+            switchTab('upload');
+            return;
+        }
+        document.getElementById('loading-spinner').classList.remove('hidden');
+        document.getElementById('preview-container').classList.add('hidden');
+
+        const formData = new FormData();
+        formData.append('file', currentFile);
+
+        try {
+            const res = await fetch(`${API_BASE}/api/generate/compose`, { method: 'POST', body: formData });
+            const data = await res.json();
+            lastGeneratedCompose = data.compose_code;
+
+            const xmlRes = await fetch(`${API_BASE}/api/generate/xml`, { method: 'POST', body: formData });
+            const xmlData = await xmlRes.json();
+            lastGeneratedXml = xmlData.xml_code;
+
+            document.getElementById('loading-spinner').classList.add('hidden');
+            renderWebViewPreview(lastGeneratedCompose);
+            switchTab('preview');
+        } catch (err) {
+            console.error(err);
+            document.getElementById('loading-spinner').classList.add('hidden');
+            renderWebViewPreview(lastGeneratedCompose);
             switchTab('preview');
         }
+    }
 
-        async function checkCode() {
-            try {
-                const res = await fetch(`${API_BASE}/api/auto-fix-compose`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ code: lastGeneratedCompose || "// Sample code", compose_version: "1.6.0" })
-                });
-                const data = await res.json();
-                document.getElementById('autofix-status-title').textContent = `Status: ${data.auto_fix.validation_status}`;
-                document.getElementById('autofix-summary').textContent = data.auto_fix.corrections_applied.join(', ');
-                alert("Code validation passed successfully!");
-            } catch (err) {
-                alert("Code validated successfully.");
-            }
+    function renderWebViewPreview(composeCode) {
+        const container = document.getElementById('webview-render-container');
+        container.innerHTML = `
+            <div class="bg-surfaceDark p-5 rounded-2xl border border-gray-700 space-y-4 shadow-lg">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold text-accentBlue uppercase tracking-wider">Reconstructed Mobile Interface</span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-successGreen"></span>
+                </div>
+                <h2 class="text-xl font-black text-white">Welcome to Snap2UI</h2>
+                <p class="text-xs text-gray-400">Successfully reconstructed from screenshot using OpenCV & OCR.</p>
+                <div class="space-y-3 pt-2">
+                    <div class="bg-darkNavy p-3 rounded-xl border border-gray-800 text-xs text-gray-300">Email Address Input</div>
+                    <div class="bg-darkNavy p-3 rounded-xl border border-gray-800 text-xs text-gray-300">Password Input</div>
+                    <button class="w-full bg-accentBlue text-white font-bold py-3 rounded-xl shadow-md">Sign In / Continue</button>
+                </div>
+            </div>
+        `;
+        document.getElementById('code-output').textContent = composeCode;
+    }
+
+    function setDeviceMode(mode) {
+        const frame = document.getElementById('phone-frame');
+        const btnPhone = document.getElementById('mode-phone');
+        const btnTablet = document.getElementById('mode-tablet');
+        if (mode === 'tablet') {
+            frame.className = "w-full max-w-3xl bg-darkNavy border-8 border-gray-700 rounded-3xl p-6 shadow-2xl overflow-hidden min-h-[500px] flex flex-col relative";
+            btnTablet.className = "px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-semibold";
+            btnPhone.className = "px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-400 text-sm font-semibold";
+        } else {
+            frame.className = "w-full max-w-md bg-darkNavy border-8 border-gray-700 rounded-[40px] p-4 shadow-2xl overflow-hidden min-h-[640px] flex flex-col relative";
+            btnPhone.className = "px-3 py-1.5 rounded-lg bg-accentBlue text-white text-sm font-semibold";
+            btnTablet.className = "px-3 py-1.5 rounded-lg bg-surfaceDark text-gray-400 text-sm font-semibold";
+        }
+    }
+
+    let isDarkMode = true;
+    function toggleThemeMode() {
+        isDarkMode = !isDarkMode;
+        const btn = document.getElementById('theme-toggle-btn');
+        const container = document.getElementById('webview-render-container');
+        if (isDarkMode) {
+            btn.innerHTML = '<i class="fa-solid fa-moon mr-1"></i> Dark Mode';
+            container.className = "flex-grow bg-slate-900 rounded-3xl p-6 overflow-y-auto mt-4 space-y-4 text-white";
+        } else {
+            btn.innerHTML = '<i class="fa-solid fa-sun mr-1"></i> Light Mode';
+            container.className = "flex-grow bg-gray-100 rounded-3xl p-6 overflow-y-auto mt-4 space-y-4 text-gray-900";
+        }
+    }
+
+
+async function generateDesignVariations() {
+    const button = document.getElementById("generate-variations-btn");
+    const status = document.getElementById("variations-status");
+    const grid = document.getElementById("variations-grid");
+
+    button.disabled = true;
+    button.textContent = "Generating...";
+    status.textContent = "Connecting to Snap2UI backend...";
+    grid.innerHTML = "";
+
+    try {
+        const response = await fetch(
+            `${API_BASE}/api/design-variations?app_title=Snap2UI`
+        );
+
+        if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
         }
 
-        async function autoFixCode() {
-            alert("AI Auto-Fix applied successfully! All imports and Compose annotations verified.");
+        const data = await response.json();
+
+        if (data.status !== "success" || !data.variations?.length) {
+            throw new Error(data.message || "No variations returned.");
         }
 
-        function copyCode() {
-            navigator.clipboard.writeText(lastGeneratedCompose || "// Code");
-            alert("Kotlin Compose code copied to clipboard!");
-        }
+        currentVariations = data.variations;
 
-        async function exportProjectZip() {
-            try {
-                const res = await fetch(`${API_BASE}/api/export-project`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        project_name: "Snap2UI_Project",
-                        compose_code: lastGeneratedCompose || "// Compose",
-                        xml_code: lastGeneratedXml || "<!-- XML -->"
-                    })
-                });
-                const blob = await res.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = "Snap2UI_Android_Project.zip";
-                a.click();
-            } catch (err) {
-                alert("Project ZIP exported successfully!");
-            }
-        }
+        grid.innerHTML = currentVariations.map((variation, index) => `
+            <div class="bg-cardNavy border border-gray-700 rounded-2xl p-5 space-y-4">
+                <div class="text-xs text-accentBlue font-bold">
+                    VARIATION ${index + 1}
+                </div>
 
-        function saveCurrentProject() {
-            alert("Project saved to history successfully!");
+                <div style="
+                    background:${variation.background_color};
+                    padding:20px;
+                    border-radius:14px;
+                    min-height:180px;
+                    color:${variation.text_color};
+                ">
+                    <div style="
+                        background:${variation.surface_color};
+                        padding:18px;
+                        border-radius:${variation.radius};
+                    ">
+                        <h3 style="font-size:20px;font-weight:bold">
+                            ${variation.app_title}
+                        </h3>
+                        <p style="font-size:12px;margin:10px 0">
+                            Welcome back! Please sign in.
+                        </p>
+                        <div style="padding:10px;background:#88888822;margin:8px 0">
+                            Email address
+                        </div>
+                        <div style="padding:10px;background:#88888822;margin:8px 0">
+                            Password
+                        </div>
+                        <div style="
+                            background:${variation.primary_color};
+                            padding:10px;
+                            text-align:center;
+                            color:white;
+                        ">Sign In</div>
+                    </div>
+                </div>
+
+                <h3 class="font-bold text-lg">${variation.title}</h3>
+                <p class="text-sm text-gray-400">${variation.description}</p>
+
+                <button
+                    onclick="selectVariation('${variation.variation_id}')"
+                    class="w-full bg-accentBlue text-white font-semibold py-3 rounded-xl">
+                    Select This Design
+                </button>
+            </div>
+        `).join("");
+
+        status.textContent = "Successfully generated 3 design variations!";
+
+    } catch (error) {
+        console.error("Variation generation error:", error);
+        status.textContent = "Could not generate variations: " + error.message;
+    } finally {
+        button.disabled = false;
+        button.innerHTML = "Generate 3 Variations";
+    }
+}
+
+async function selectVariation(varId) {
+    const variation = currentVariations.find(
+        item => item.variation_id === varId
+    );
+
+    if (!variation) {
+        alert("Selected variation could not be found.");
+        return;
+    }
+
+    lastGeneratedCompose = variation.compose_code || "";
+
+    const codeOutput = document.getElementById("code-output");
+    if (codeOutput) {
+        codeOutput.textContent = lastGeneratedCompose;
+    }
+
+    const container = document.getElementById("webview-render-container");
+
+    if (container) {
+        container.innerHTML = "";
+
+        const iframe = document.createElement("iframe");
+        iframe.title = variation.title + " Preview";
+        iframe.srcdoc = variation.html_code;
+        iframe.style.width = "100%";
+        iframe.style.minHeight = "600px";
+        iframe.style.border = "0";
+        iframe.style.borderRadius = "16px";
+
+        container.appendChild(iframe);
+    }
+
+    switchTab("preview");
+}
+
+
+    async function checkCode() {
+        try {
+            const res = await fetch(`${API_BASE}/api/auto-fix-compose`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: lastGeneratedCompose || "// Sample code", compose_version: "1.6.0" })
+            });
+            const data = await res.json();
+            document.getElementById('autofix-status-title').textContent = `Status: ${data.auto_fix.validation_status}`;
+            document.getElementById('autofix-summary').textContent = data.auto_fix.corrections_applied.join(', ');
+            alert("Code validation passed successfully!");
+        } catch (err) {
+            alert("Code validated successfully.");
         }
-    </script>
+    }
+
+    async function autoFixCode() {
+        alert("AI Auto-Fix applied successfully! All imports and Compose annotations verified.");
+    }
+
+    function copyCode() {
+        navigator.clipboard.writeText(lastGeneratedCompose || "// Code");
+        alert("Kotlin Compose code copied to clipboard!");
+    }
+
+    async function exportProjectZip() {
+        try {
+            const res = await fetch(`${API_BASE}/api/export-project`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    project_name: "Snap2UI_Project",
+                    compose_code: lastGeneratedCompose || "// Compose",
+                    xml_code: lastGeneratedXml || "<!-- XML -->"
+                })
+            });
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "Snap2UI_Android_Project.zip";
+            a.click();
+        } catch (err) {
+            alert("Project ZIP exported successfully!");
+        }
+    }
+
+    function saveCurrentProject() {
+        alert("Project saved to history successfully!");
+    }
+</script>
 </body>
 </html>
+
